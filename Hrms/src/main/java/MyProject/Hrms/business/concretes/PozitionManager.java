@@ -1,5 +1,6 @@
 package MyProject.Hrms.business.concretes;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,5 +26,14 @@ public class PozitionManager implements PozitionService {
 
 		return this.pozitionDao.findAll();
 	}
+
+	@Override
+	public Pozition add(Pozition pozition) {
+
+		return this.pozitionDao.save(pozition);
+		
+	}
+
+	
 
 }

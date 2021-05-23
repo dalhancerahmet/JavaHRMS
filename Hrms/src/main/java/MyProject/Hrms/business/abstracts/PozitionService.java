@@ -7,5 +7,6 @@ import MyProject.Hrms.entities.Pozition;
 public interface PozitionService {
 	
 	List<Pozition> getAll();
+	Pozition add(Pozition pozition);
 
 }
