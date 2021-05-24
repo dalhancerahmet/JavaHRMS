@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import MyProject.Hrms.business.abstracts.PozitionService;
+import MyProject.Hrms.core.utilities.results.DataResult;
+import MyProject.Hrms.core.utilities.results.Result;
 import MyProject.Hrms.entities.Pozition;
 
 @RestController
@@ -25,21 +27,15 @@ public class PozitionController {
 	}
 
 	@GetMapping("/getall")
-	public List<Pozition> getAll(){
+	public DataResult<List<Pozition>> getAll(){
 		return this.pozitionService.getAll();
 	}
 	
 	@PostMapping("/add")
-	public String add(@RequestBody Pozition pozition) {
-
-		if(pozition != null) {
-			this.pozitionService.add(pozition);
-			return "Ürün Eklendi";
-		}
+	public Result add(@RequestBody Pozition pozition) {
 		
-		return "Başarısız!!";
-		
-
+			return this.pozitionService.add(pozition);
+			
 	}
 
 }
